@@ -23,7 +23,7 @@ import { RefoundComponent } from './pages/refound/refound.component';
 
 const routes: Routes = [
   {
-    path: "auth",
+    path: "",
     component: AuthComponent,
     children: [
       { path: "", component: LoginComponent },
