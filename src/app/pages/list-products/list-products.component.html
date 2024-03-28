@@ -1,0 +1,96 @@
+<section class="container-fluid p-0 h-100 main p-lg-3">
+    <div class="tableOverflow">
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <td>Nome</td>
+                    <td>Quantiedade</td>
+                    <td> Preço </td>
+                    <td scope="row" class="d-none d-md-table-cell"></td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr *ngFor="let product of this.products" [attr.data-bs-toggle]="modalIsOpen ? 'modal' : null"
+                    [attr.data-bs-target]="modalIsOpen ? '#deleteOrEdit' : null" (click)='this.chosenProducts({
+                    productId:product.productId,
+                    productName:product.productName,
+                    price:product.price,
+                    quantity:product.quantity, 
+                    active:true,
+                    productChosen:product.productChosen
+                })'>
+                    <td> {{product.productName}} </td>
+                    <td> {{product.quantity}} </td>
+                    <td> {{product.price | number:'1.2-2' }} </td>
+                    <td class="d-none d-md-flex grid gap-2 justify-content-end">
+
+                        <button type="button" class="btn btn-danger w-50 pt-2" (click)="this.inactiveProducts({
+                            productId:product.productId,
+                            productName:product.productName,
+                            price:product.price,
+                            quantity:product.quantity, 
+                            active:true,
+                            productChosen:product.productChosen
+                            });">
+                            <span>
+                                <i class="fi fi-rr-circle-trash"></i>
+                            </span>
+                        </button>
+
+                        <button type="button" class="btn btn-warning w-50 pt-2" (click)="this.updateProducts({
+                            productId:product.productId,
+                            productName:product.productName,
+                            price:product.price,
+                            quantity:product.quantity, 
+                            active:true,
+                            productChosen:product.productChosen
+                            });$event.stopPropagation()">
+                            <span>
+                                <i class="fi fi-rr-pencil"></i>
+                            </span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+<!-- Modal -->
+<ng-container *ngIf="modalIsOpen;">
+    <div class="modal fade" id="deleteOrEdit" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true"
+        [ngClass]=>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel"> Produto - </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body grid gap-2 d-flex">
+                    <button type="button" data-bs-dismiss="modal" class="btn btn-danger pt-2" style="width: 40%;"
+                        (click)="this.inactiveProducts(this.productChosen)">
+                        <span>
+                            Deletar
+                            <br>
+                            <i class="fi fi-rr-circle-trash"></i>
+                        </span>
+                    </button>
+
+                    <button type="button" class="btn btn-warning pt-2" data-bs-dismiss="modal" style="width: 40%;"
+                        (click)="this.updateProducts(this.productChosen)">
+                        <span>
+                            Editar
+                            <br>
+                            <i class="fi fi-rr-pencil"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

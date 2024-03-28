@@ -1,0 +1,21 @@
+<div class="container-fluid  d-flex p-0">
+    <div class="position-absolute main me-5">
+        <section class="productsList me-5">
+            <ul class="list">
+                <li *ngFor="let product of this.products" class="product p-2" id="product-{{product.productId}}" (click)="selectProducts(product)">
+                    <h4> {{ product.productName }} </h4>
+                    <div class="mt-4">
+                        <span class="d-block">
+                            <i class="fi fi-rr-box-open"></i>
+                            {{ product.quantity }}
+                        </span>
+                        <span>
+                            <i class="fi fi-rr-badge-dollar" ></i>
+                            {{ product.price | number: '1.2-2' }}$
+                        </span>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<button class="btn btn-icon mt-3" (click)="openOrderCart()">
+    <i class="fi fi-rr-shopping-cart"></i>
+</button>
+
+<div class="backgroundCurtain" id="backgroundCurtain"></div>
+
+<section class="OrderCart p-2" id="OrderCart">
+    <h3 class="w-100 text-center"> Carrinho de compras </h3>
+    <button class="btn btn-icon closeCollapse" (click)="closeOrderCart()">
+        <i class="fi fi-rr-arrow-small-right"></i>
+    </button>
+
+    <form class="form">
+        <fieldset class="form-group">
+            <label for="phone" class="label-form"> número de telefone do cliente: </label>
+            <input type="text" class="form-control" name="phone" id="phone" placeholder="ex: (41)999999999">
+        </fieldset>
+    </form>
+
+    <ul class="OrderCart-menu mt-3">
+        <li *ngFor="let product of this.mapEntries(this.productsOfOrderCart)">
+            <ng-container *ngIf="isProducts(product)">
+                <div class="d-flex OrderCart-item my-1 p-2" id="product-{{product.productId}}">
+                    <p class="me-2"> {{ product.productName }} </p>
+                    <div class="d-flex ms-auto me-1">
+                        <button type="button" (click)="this.addOneItem(product)"
+                            class="btn btn-secondary d-flex align-items-center btn1"> + </button>
+                        <p class="mx-3"> {{ product.quantity }} </p>
+                        <button type="button" (click)="this.removeOneItem(product)"
+                            class="btn btn-secondary d-flex align-items-center btn2"> - </button>
+                    </div>
+                </div>
+            </ng-container>
+        </li>
+    </ul>
+    <div class="PriceCalc">
+        <p> Valor a pagar: {{ totalPrice | number:'1.2-2' }}R$ </p>
+    </div>
+    <div class="d-flex me-3">
+        <button type="button" class="btn btn-success mx-3 ms-auto w-50" (click)="confirmOrder()"> confirmar </button>
+        <button type="button" class="btn btn-danger w-50" (click)="cancel()"> cancelar </button>
+    </div>
+</section>
+

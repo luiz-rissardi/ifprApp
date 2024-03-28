@@ -1,0 +1,48 @@
+@import "../../styles/vars";
+
+#cameraView {
+    margin: auto;
+}
+
+#cameraContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.ProductContainer{
+    width: 90%;
+    height: 30vh;
+    background-color: $mainColor;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    &-quantity{
+        width: 200px;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 15px;
+        background-color: $secondaryColor;
+        font-size: 2rem !important;
+        color: white;
+    }
+    button{
+        font-size: 1.5rem !important;
+    }
+}
+
+
+
+.scannerQrCode {
+    border: none;
+    border-radius: 20px;
+    background-color: $tercaryColor;
+    margin: 30px;
+    color: white;
+    height: 7vh;
+}

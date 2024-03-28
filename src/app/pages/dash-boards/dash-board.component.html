@@ -1,0 +1,22 @@
+<section class="dash-board">
+    <div class="dash-area d-flex flex-wrap justify-content-center mb-5 border flex-column">
+        <h3 class="me-auto mx-auto"> top produtos vendidos (valor R$) </h3>
+        <form [formGroup]="this.form">
+            <fieldset class="form-group d-flex m-3 align-items-center">
+                <label for="quantityTop" class="form-label"> qualificar por: </label>
+                <select id="quantityTop" class="form-select w-50" (change)="this.getTopProductss()"
+                    formControlName="qualification">
+                    <option value="5" [selected]="true"> top 5 produtos</option>
+                    <option value="10"> top 10 produtos</option>
+                    <option value="15"> top 15 produtos</option>
+                    <option value=""> todos os produtos</option>
+                </select>
+            </fieldset>
+        </form>
+        <app-donut></app-donut>
+    </div>
+    <div class="dash-area d-flex flex-column justify-content-center p-5 mb-5 border">
+        <h3 class="me-auto mx-auto"> Venda Total (valor R$) </h3>
+        <app-relatory [totalPriceOfOrders]="this.totalPriceOfOrders" [productSelling]="this.productsSelling"></app-relatory>
+    </div>
+</section>

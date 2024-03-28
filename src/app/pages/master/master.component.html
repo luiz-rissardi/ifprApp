@@ -1,0 +1,13 @@
+<div class="container-fluid p-0 d-flex flex-column">
+    <app-spinner-loader></app-spinner-loader>
+    <app-header></app-header>
+    <app-command-modal></app-command-modal>
+    <app-Order-cart *ngIf="this.activeOrderCart"></app-Order-cart>
+    <section class="d-lg-flex p-0">
+        <app-warning-handler></app-warning-handler>
+        <app-nav-bar *ngIf="isAdminAccount"></app-nav-bar>
+        <div class="w-100">
+            <router-outlet></router-outlet>
+        </div>
+    </section>
+</div>

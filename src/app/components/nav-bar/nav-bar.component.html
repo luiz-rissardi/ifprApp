@@ -1,0 +1,42 @@
+<nav class="navBarMenu" id="navBarMenu">
+    <ul>
+        <li class="d-none d-lg-flex">
+            <a class="w-100 d-flex align-items-center justify-content-center px-2">
+                <div class="setIcon mt-1" id="setIcon">
+                    <i class="fi fi-rr-angle-right mt-1"></i>
+                </div>
+            </a>
+        </li>
+        <li class="mt-lg-5">
+            <a routerLink="/home">
+                <i class="fi fi-rr-home"></i>
+                <span class="ms-2 iconName" *ngIf="this.ShowNavDescriptionItem === true"> home </span>
+            </a>
+        </li>
+        <li class="mt-lg-5">
+            <a routerLink="/home/inactive-command">
+                <i class="fi fi-rr-square-x"></i>
+                <span class="ms-2 iconName" *ngIf="this.ShowNavDescriptionItem === true"> inativar </span>
+            </a>
+        </li>
+        <li class="mt-lg-5">
+            <a routerLink="/home/refound">
+                <i class="fi fi-rr-coins"></i> <!-- Ícone de moeda -->
+                <i class="fi fi-rr-arrow-down"></i>
+                <span class="ms-2 iconName" *ngIf="this.ShowNavDescriptionItem === true"> estorno </span>
+            </a>
+        </li>
+        <li class="mt-lg-5">
+            <a routerLink="/home/reset-command">
+                <i class="fi fi-rr-qrcode"></i>
+                <span class="ms-2 iconName" *ngIf="this.ShowNavDescriptionItem === true"> comanda </span>
+            </a>
+        </li>
+        <li class="my-lg-5">
+            <a routerLink="/home/dash-board">
+                <i class="fi fi-rr-stats"></i>
+                <span class="ms-2 iconName" *ngIf="this.ShowNavDescriptionItem === true"> Graficos </span>
+            </a>
+        </li>
+    </ul>
+</nav>

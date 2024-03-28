@@ -1,0 +1,81 @@
+
+@import "../../styles/mixins";
+@import "../../styles/vars";
+
+.productsList{
+    position: fixed ;
+    height: 68vh;
+    width: 100%;
+    background-color: $mainColor;
+    display: flex;
+    justify-content: center;
+
+    @include BreakPoint(desktop-up){
+        width: 95% !important;
+    }
+
+    @include BreakPoint(desktop-md-up){
+        width: 93%;
+    }
+}
+
+.list{
+    position: absolute;
+    width: 83vw;
+    margin: auto;
+    height: 62vh;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: scroll;
+    border-radius: 15px;  
+    left: 7.5vw;
+    padding: 0;
+}
+
+.product{
+    width: 43%;
+    height: auto;
+    max-height: 150px;
+    background-color: white;
+    list-style: none;
+    color: $secondaryColor;
+    padding: 10px;
+    border-radius: 15px;
+    box-shadow: 4px 4px 0 0 #0006;
+    margin: auto;
+    margin-left: 10px;
+    margin-top:10px;
+
+    &:hover{
+        color: white;
+        background-color: $secondaryColor;
+    }
+
+    &-active{
+        color: white;
+        background-color: $secondaryColor;
+    }
+    
+
+    @include BreakPoint(tablet-up){
+        width: 95%;
+    }
+
+    @include BreakPoint(mobile-only){
+        width: 95%;
+    }
+}
+
+.productInvalid{
+    animation: blink 500ms 3; 
+}
+
+@keyframes blink {
+    0%, 50%, 100%{
+        background-color: white;
+    }
+    25%,75%{
+        background-color: $invalid;
+    }
+}
+

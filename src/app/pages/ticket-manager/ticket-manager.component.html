@@ -1,0 +1,20 @@
+<section class="container-fluid p-0 h-100">
+    <h2 class=" text-center">
+        Escanear QR code
+    </h2>
+
+    <div id="cameraContainer" *ngIf="this.product == undefined">
+        <button type="button" class="scannerQrCode" (click)="scan()"> escanear QRcode </button>
+        <video id="cameraView" width="300" height="300" autoplay playsinline></video>
+    </div>
+
+    <section class="d-flex flex-column" *ngIf="this.product != undefined">
+        <h3 class="my-3 mx-auto"> quantiedade de ({{ product.productName }}) disponíveis : {{ product.quantity }} </h3>
+        <div class="ProductContainer">
+            <button class="btn btn-secondary" (click)="this.addToRemove()"> + </button>
+            <span class="ProductContainer-quantity"> {{ amountToRemove }} </span>
+            <button class="btn btn-secondary" (click)="this.lessToRemove()"> - </button>
+        </div>
+        <button class="btn btn-success my-5 mx-auto w-75" (click)="this.confirmRemove()"> confirmar retirada </button>
+    </section>
+</section>

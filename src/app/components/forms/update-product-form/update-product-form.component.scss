@@ -1,0 +1,41 @@
+@import "../../../styles/vars";
+@import "../../../styles/mixins";
+
+.blusStrip{
+    height: 40vh;
+    width: 100%;
+    background-color: $mainColor;
+    position: fixed;
+}
+
+.main{
+    width: 95vw;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+
+    @include BreakPoint(mobile-only){
+        width: 100vw;
+    }
+
+    &-card{
+        width: 40vw;
+        height: auto;
+        margin-top: 5vh;
+        background-color: $secondaryColor;
+        color: white;
+        border: 5px solid white;
+        border-radius: 20px;
+        padding: 10px;
+
+        @include BreakPoint(mobile-only){
+            width: auto;
+            height: auto;
+        }
+
+        @include BreakPoint(tablet-up){
+            width: 70vw;
+            height: auto;
+        }
+    }
+}

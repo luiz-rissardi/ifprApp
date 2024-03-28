@@ -1,0 +1,39 @@
+
+
+@mixin BreakPoint($point){
+    @if($point == mobile-only){
+        @media screen and (max-width:650px) {
+            @content;
+        }
+    }
+
+    @if($point == tablet-only){
+        @media screen and (max-width:950px){
+            @content;
+        }
+    }
+
+    @if($point == tablet-up){
+        @media screen and (min-width:650px) and (max-width:950px) {
+            @content;
+        }
+    }
+
+    @if($point == desktop-md-up){
+        @media screen and (min-width:950px) and (max-width:1150px){
+            @content;
+        }
+    }
+
+    @if($point == desktop-up){
+        @media screen and (min-width:1150px) {
+            @content;
+        }
+    }
+
+    @if($point == desktop-only){
+        @media screen and (max-width:1150px) {
+            @content;
+        }
+    }
+}

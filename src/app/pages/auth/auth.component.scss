@@ -1,0 +1,58 @@
+@import "../../styles/mixins";
+@import "../../styles/vars";
+
+.cardLogin {
+    width: 37vw;
+    min-height: 70vh;
+    height: auto;
+    background-color: rgba(rgb(160, 160, 160), 0.7); // Use rgba para definir a transparência
+    color: white;
+    margin: auto;
+    margin-top: 10vh;
+    display: block;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 4px 4px rgb(160, 160, 160,0.7),;
+    z-index: 2;
+    position: relative; /* Adicione essa propriedade para definir a posição */
+    backdrop-filter: blur(10px);
+
+
+    @include BreakPoint(tablet-only) {
+        width: 400px;
+    }
+
+    @include BreakPoint(mobile-only){
+        width: 100%;
+        height: 100vh;
+        margin-top: 0;
+        padding-top: 10vh;
+        font-size: 0.8rem;
+    }
+}
+
+.logoBanner {
+    position: fixed;
+    width: 55vw;
+    margin: auto;
+    margin-top: 10vh;
+    border-radius: 50%;
+    padding: 30px;
+    z-index: 1;
+
+    @include BreakPoint(tablet-only){
+        width: 90vw;
+    }
+
+    @include BreakPoint(mobile-only){
+        width: 480px;
+    }
+}
+
+section{
+    width: 100vw;
+    height: 100vh;
+    background-color: rgb(199, 199, 199) !important;
+}
+

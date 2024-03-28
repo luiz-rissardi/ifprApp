@@ -1,1 +1,50 @@
 /* You can add global styles to this file, and also import other style files */
+@import "./app/styles/mixins";
+@import "./app/styles/vars";
+
+*{
+    font-family: monospace;
+    font-size: 1.2rem;
+    @include BreakPoint(mobile-only){
+        font-size: 1rem !important;
+    }
+}
+
+::-webkit-scrollbar{
+    width: 1px;
+}
+
+
+.btn {
+    &-personality {
+        width: -webkit-fill-available;
+        margin: 1rem;
+        background: linear-gradient(to right, purple, blue,red);
+        color: white;
+
+        &:hover{
+            background: linear-gradient(to right, red, green,purple);
+        }
+    }
+
+    &-btnLink{
+        color: white;
+        border: none;
+
+        &:hover{
+            border-radius: 0;
+            border-bottom: 1px solid white;
+        }
+    }
+}
+
+.invalid-feedback{
+    &-login{
+        border: 1px solid $invalid;
+        box-shadow: 0 4px 4px 0 $invalid;
+    }
+
+    &-description{
+        color: red;
+    }
+}

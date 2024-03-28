@@ -1,0 +1,45 @@
+@import "../../styles/vars";
+
+
+.relatory{
+    &-container{
+        width: 100%;
+        position: relative;
+        margin: auto;
+        height: 55vh;
+        border-radius: 10px;
+        background-color: $secondaryColor;
+        padding-top: 20px;
+    }
+
+    &-header{
+        display: flex;;
+        width: 90%;
+        height: 7vh;
+        margin-top: 5px;
+        border-radius: 10px;
+        align-items: center;
+        padding: 20px;
+        justify-content: space-between;
+        color: $mainColor;
+        font-size: 1rem;
+        font-weight: 700;
+    }
+
+    &-item{
+        display: flex;
+        background-color: white;
+        width: 90%;
+        height: 7vh;
+        margin-top: 5px;
+        border-radius: 10px;
+        align-items: center;
+        padding: 20px;
+        justify-content: space-between;
+    }
+}
+
+ul{
+    height: 350px;
+    overflow-y: scroll;
+}

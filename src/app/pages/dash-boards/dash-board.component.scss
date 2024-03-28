@@ -1,0 +1,19 @@
+@import "../../styles/mixins";
+
+
+.dash{
+    &-board{
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        height: auto;
+        overflow: hidden;
+        overflow-y: scroll;
+    }
+    &-area{
+        width: 50%;
+        @include BreakPoint(tablet-only){
+            width: 100%;
+        }
+    }
+}

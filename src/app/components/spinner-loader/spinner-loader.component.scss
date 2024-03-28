@@ -1,0 +1,15 @@
+
+.spinner-container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    z-index: 1000;
+    background-color: rgb(black,0.7);
+}
+
+.custom-spinner{
+    width: 300px;
+    height: 300px;
+    margin: auto;
+}

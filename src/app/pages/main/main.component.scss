@@ -1,0 +1,33 @@
+@import "../../styles/vars";
+
+.main {
+    height: 50%;
+    background-color: $mainColor;
+}
+
+.card {
+    border-radius: 10px;
+    border: 3px solid white;
+    background-color: $secondaryColor;
+    color: white ;
+    font-size: 2rem;
+    font-family: monospace;
+    font-weight: 600;
+    height: auto;
+    transition: 0.5s ease-in-out;
+
+    a {
+        color: white ;
+        text-decoration: none;
+    }
+}
+
+.card:hover {
+    transition: 0.5s ease-in-out;
+    background-color: white;
+    border: 3px solid $secondaryColor;
+    
+    a{
+        color: $secondaryColor !important;
+    }
+}

@@ -1,0 +1,30 @@
+<div class="container-fluid p-0">
+    <div class="blusStrip"></div>
+    <section class="main p-0">
+        <div class="card main-card">
+            <form [formGroup]="this.formProducts">
+                <input type="hidden" formControlName="productId">
+                <div class="form-group">
+                    <label for="productName" class="form-label "> Nome do produto: </label>
+                    <input type="text" formControlName="productName" id="productName" class="form-control">
+                    <span class="invalid-feedback text-white bg-danger rounded p-1"> </span>
+                </div>
+                <div class="form-group my-3">
+                    <label for="productQuantity" class="form-label "> Quantiedade no estoque: </label>
+                    <input type="text" formControlName="quantity" id="productQuantity" class="form-control">
+                    <span class="invalid-feedback text-white bg-danger rounded p-1"> </span>
+                </div>
+                <div class="form-group">
+                    <label for="productPrice" class="form-label "> Preço do produto: </label>
+                    <input type="text" formControlName="price" id="productPrice" class="form-control">
+                    <span class="invalid-feedback text-white bg-danger rounded p-1"> </span>
+                </div>
+                <div class="d-flex justify-content-end mt-3" >
+                    <button type="button" class="btn btn-success mx-3" (click)="this.CreateProducts()"> confirmar </button>
+                    <button type="button" class="btn btn-danger" routerLink="/home" > cancelar </button>
+                </div>
+
+            </form>
+        </div>
+    </section>
+</div>

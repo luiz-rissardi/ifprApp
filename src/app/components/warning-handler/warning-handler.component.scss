@@ -1,0 +1,60 @@
+@import "../../styles/vars";
+@import "../../styles/mixins";
+
+
+.feedback{
+    &-box{
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        right: 5%;
+        width: auto;
+        height: auto;
+        border-radius: 10px;
+        display: flex;
+        padding: 20px;
+        visibility: hidden;
+        transition: 2s ease;
+        z-index: 1000;
+        @include BreakPoint(desktop-up){
+            left: 70%;
+        }
+
+        @include BreakPoint(mobile-only){
+            width: 80%;
+            left: 10%;
+        }
+    }
+
+    &-description{
+        color: white;
+        margin: auto;
+
+    }
+
+    &-valid{
+        background-color: $valid;
+        animation: showToast 3s;
+    }
+
+    &-invalid{
+        background-color: $invalid;
+        animation: showToast 3s;
+    }
+}
+
+
+@keyframes showToast {
+    0%{
+        visibility: visible;
+        top: 0px;
+    }
+
+    50%{
+        top: 50px;
+    }
+
+    100%{
+        top: -80px;
+    }
+}

@@ -1,0 +1,224 @@
+@import "../../styles/mixins";
+@import "../../styles/vars";
+
+label {
+    font-size: 1rem;
+}
+
+.PriceCalc {
+    width: 100%;
+    height: 5vh;
+    background-color: white;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+
+    p {
+        font-size: 1rem !important;
+    }
+}
+
+.backgroundCurtain {
+    position: fixed;
+    width: 100%;
+    height: 120%;
+    background: rgb(0, 0, 0, 0.7);
+    display: none;
+    z-index: 105;
+    margin-top: -20vh;
+
+}
+
+.showBackgroundCurtain {
+    @include BreakPoint(tablet-only) {
+        display: flex;
+        animation: animationToRight 200ms ease-in-out;
+    }
+}
+
+.OrderCart {
+    opacity: 0;
+    min-height: 60px;
+    width: 30%;
+    height: 100%;
+    margin-left: 70%;
+    top: 0%;
+    padding: 20px;
+    background-color: rgb(216, 216, 216);
+    color: black;
+    border: 1px solid white;
+    position: absolute;
+    z-index: 20;
+
+
+    @include BreakPoint(tablet-only) {
+        z-index: 110;
+        position: fixed;
+        width: 90%;
+        height: 80%;
+        border-radius: 10px 0 0 0;
+        margin-top: 5vh;
+        margin-left: 10%;
+
+        h3,
+        p {
+            font-size: 1.5rem !important;
+        }
+    }
+
+    @include BreakPoint(mobile-only) {
+        height: 100%;
+
+        h3,
+        p {
+            font-size: 1.1rem !important;
+        }
+
+        &-menu {
+            height: 80% !important;
+        }
+    }
+
+    @include BreakPoint(desktop-md-up) {
+        margin-right: 20px;
+        min-width: 260px;
+        margin-left: 70vw;
+    }
+
+    &-menu {
+        overflow: hidden;
+        overflow-y: scroll;
+
+        &::-webkit-scrollbar {
+            width: 6px;
+            background: #F4F4F4;
+        }
+
+        height: 60%;
+
+        @include BreakPoint(mobile-only) {
+            height: 65% !important;
+        }
+    }
+
+    &-item {
+        width: 100%;
+        height: 40px;
+        display: flex;
+
+        @include BreakPoint(tablet-up) {
+            height: 70px;
+        }
+
+        @include BreakPoint(mobile-only) {
+            height: 50px;
+        }
+    }
+
+    h3 {
+        @include BreakPoint(desktop-up) {
+            font-size: 1rem;
+        }
+
+        @include BreakPoint(desktop-md-up) {
+            font-size: 1rem;
+        }
+    }
+
+    p {
+        font-size: 0.8rem;
+    }
+
+    ul li {
+        position: relative;
+        list-style: none;
+    }
+}
+
+.btn1 {
+    border-radius: 5px 0 0 5px;
+}
+
+.btn2 {
+    border-radius: 0 5px 5px 0;
+}
+
+.btn-icon {
+    position: absolute;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    z-index: 19;
+
+    &:hover {
+        color: white;
+        background-color: black;
+        border: 1px solid white;
+    }
+
+    @include BreakPoint(mobile-only) {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.hidden {
+    opacity: 1 !important;
+    animation: animationToLeft 1s ease-in-out;
+}
+
+.show {
+    opacity: 1 !important;
+    animation: animationToRight 1s ease-in-out;
+}
+
+.closeCollapse {
+    position: absolute;
+    margin-top: -30px;
+
+    @include BreakPoint(tablet-up) {
+        margin-top: -40px;
+    }
+}
+
+.productInvalid {
+    animation: blink 500ms 3;
+}
+
+@keyframes blink {
+
+    0%,
+    50%,
+    100% {
+        background-color: white;
+    }
+
+    25%,
+    75% {
+        background-color: $invalid;
+    }
+}
+
+@keyframes animationToRight {
+    0% {
+        transform: translateX(500px);
+    }
+
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+@keyframes animationToLeft {
+    0% {
+        transform: translateX(0px);
+    }
+
+    100% {
+        transform: translateX(500px);
+    }
+}

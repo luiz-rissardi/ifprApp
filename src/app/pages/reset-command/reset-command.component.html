@@ -1,0 +1,20 @@
+<div class="container-fluid d-flex p-0 m-0 flex-column  "> 
+    <div class="main">
+        <h2 class="mx-auto"> Reutilizar comanda </h2>
+    </div>
+    <div class="row">
+        <section class="col-12">
+            <article class="card text-white">
+                <form class="m-5 d-flex flex-column">
+                    <fieldset class="form-group">
+                        <label for="command" class="form-label"> informe o numero comanda:</label>
+                        <input type="text" id="command" class="form-control" [formControl]="this.commandControl">
+                    </fieldset>
+                    <button type="button" class="btn btn-success mt-3 ms-auto" (click)="this.resetCommand()">
+                        resetar comanda
+                    </button>
+                </form>
+            </article>
+        </section>
+    </div>
+</div>
