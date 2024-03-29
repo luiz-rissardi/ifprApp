@@ -5,7 +5,7 @@ export class ServiceBase {
         'Content-Type': 'application/json'
     }
     protected options = { headers: this.headers }
-    protected uri = "http://localhost:8723/api";
+    protected uri = "https://festajunina-8da51b682b64.herokuapp.com/api";
 
     constructor(protected http: HttpClient) {
     }

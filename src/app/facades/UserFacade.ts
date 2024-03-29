@@ -24,6 +24,7 @@ export class UserFacade {
         try {
             setUserNameStorage(name);
             this.accountService.login(name, password).subscribe((data: any) => {
+                console.log(data);
                 let { authenticated, user } = data;
                 if (authenticated === false) {
                     this.warningHandler.reportError("usuario ou senha incorretos");
