@@ -75,7 +75,7 @@ export class ProductsFacade {
         )
     }
 
-    findAllProductss(): Observable<any> {
+    findAllProducts(): Observable<any> {
         return new Observable(subscriber => {
             this.service.getAllProducts().subscribe({
                 next: (data: any) => {

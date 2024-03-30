@@ -1,6 +1,6 @@
 
 import { Injectable } from "@angular/core";
-import { ReplaySubject } from "rxjs";
+import { Subject } from "rxjs";
 
 // pattern observable 
 @Injectable({
@@ -9,7 +9,7 @@ import { ReplaySubject } from "rxjs";
 
 export class LoaderSpinnerState {
     private show: boolean = false;
-    private subject: ReplaySubject<boolean> = new ReplaySubject<boolean>(1);
+    private subject: Subject<boolean> = new Subject<boolean>();
 
     setState(state:boolean){
         this.show = state;

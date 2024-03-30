@@ -31,15 +31,15 @@ export class CommerceFacade {
     private handlerOperation(operation: Observable<any>, errorMessage: string) {
         operation.subscribe({
             next: (data) => {
+                this.spinnerState.setState(false);
                 this.warningHandler.reportSuccess(data?.message, data?.type);
             },
             error: (error) => {
                 console.log(error);
+                this.spinnerState.setState(false);
                 this.warningHandler.reportError(errorMessage);
             },
-            complete: () => {
-                this.spinnerState.setState(false);
-            }
+
         })
     }
 

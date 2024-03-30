@@ -1,14 +1,14 @@
 <div class="container-fluid d-flex p-0 m-0 flex-column  ">
     <div class="main">
         <h2 class="position-absolute text-center w-100"> executar estorno de venda </h2>
-        <section class="row">
-            <div class="col-12">
-                <form class="m-5 d-flex align-items-center">
-                    <fieldset class="form-group">
+        <section class="row w-100">
+            <div class="col-12 w-100">
+                <form class="m-5 d-flex align-items-center flex-wrap justify-content-center px-lg-5">
+                    <fieldset class="form-group text-center ">
                         <label for="command" class="form-label"> informe o numero de telefone do usuário:</label>
                         <input type="text" id="command" class="form-control" [formControl]="this.phoneControl">
                     </fieldset>
-                    <button type="button" class="btn btn-success ms-5" (click)="this.confirm()">
+                    <button type="button" class="btn btn-success w-50 my-2 mx-lg-5" (click)="this.confirm()">
                         confirmar
                     </button>
                 </form>
@@ -20,10 +20,7 @@
                         <tr>
                             <td>Nome</td>
                             <td>Quantiedade disponível</td>
-                            <td></td>
-                            <td></td>
-                            <td></td>
-                            <td>
+                            <td class="d-none d-md-table-cell justify-content-end">
                                 <button class="btn btn-warning" (click)="this.refoundAll()"> reembolsar tudo </button>
                             </td>
                         </tr>
@@ -32,14 +29,10 @@
                         <tr *ngFor="let item of this.productsOrder">
                             <td> {{item.productName}} </td>
                             <td> {{item.quantity}} </td>
-                            <td>
+                            <td class="d-none d-md-flex grid gap-2">
                                 <button class="btn btn-secondary" (click)="this.addToRemove(item)"> + </button>
-                            </td>
-                            <td> {{item.quantityToRemove}} </td>
-                            <td>
+                                {{item.quantityToRemove}}
                                 <button class="btn btn-secondary" (click)="this.lessToRemove(item)"> - </button>
-                            </td>
-                            <td>
                                 <button class="btn btn-warning" (click)="this.refound(item)"> reembolsar </button>
                             </td>
                         </tr>

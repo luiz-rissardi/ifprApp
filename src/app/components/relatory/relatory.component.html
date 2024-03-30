@@ -1,13 +1,15 @@
-
-<section class="relatory-container">
-    <ul>
-        <li class="relatory-header"> 
-            <p> nome do produto </p>
-            <p> venda total </p>
-        </li>
-        <li *ngFor="let item of this.productSelling" class="relatory-item">
-            <p> {{item.productName}} </p>
-            <p> {{item.totalPrice}} </p>
-        </li>
-    </ul>
-</section>
+<div class="w-100 d-flex flex-column">
+    <h3 class="me-auto mx-auto"> Venda Total ({{ totalPriceOfOrders | number:'1.2-2' }} R$) </h3>
+    <section class="relatory-container">
+        <ul>
+            <li class="relatory-header">
+                <p> nome do produto </p>
+                <p> venda total </p>
+            </li>
+            <li *ngFor="let item of this.productSelling" class="relatory-item">
+                <p> {{item.productName}} </p>
+                <p> {{item.totalPrice}} </p>
+            </li>
+        </ul>
+    </section>
+</div>

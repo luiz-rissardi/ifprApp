@@ -15,6 +15,7 @@ export class ValidateForm {
 
     protected activeIvalidFeedback(...fields: string[]) {
         fields.forEach((el, i) => {
+            console.log(el);
             const element = this.el.nativeElement.querySelector(`#${el}`);
             if (!this.isNotEmpty(this.form.get(el).value)) {
                 this.dom.addClass(element, "invalid-feedback-login");
@@ -25,6 +26,7 @@ export class ValidateForm {
                 this.invalidfeedbacks[i] = false;
             }
         })
+        console.log(fields);
     }
 
     protected isNotEmpty(value: null | string) {

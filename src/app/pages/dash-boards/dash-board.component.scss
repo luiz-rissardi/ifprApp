@@ -9,9 +9,15 @@
         height: auto;
         overflow: hidden;
         overflow-y: scroll;
+        @include BreakPoint(desktop-md-up){
+            flex-direction: column;
+        }
     }
     &-area{
         width: 50%;
+        @include BreakPoint(desktop-md-up){
+            width: auto;
+        }
         @include BreakPoint(tablet-only){
             width: 100%;
         }

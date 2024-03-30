@@ -79,7 +79,7 @@ export class TicketManagerComponent {
       const imageData = context.getImageData(0, 0, canvasElement.width, canvasElement.height);
       const code = jsQR(imageData.data, imageData.width, imageData.height);
       if (code) {
-        this.orderProductsFacade.getOneProductOfOrder(code.data, 12)
+        this.orderProductsFacade.getOneProductOfOrder(code.data, this.productId)
           .subscribe((data: any) => {
             this.product = data
           })
