@@ -20,16 +20,19 @@
                         <tr>
                             <td>Nome</td>
                             <td>Quantiedade disponível</td>
-                            <td class="d-none d-md-table-cell justify-content-end">
+                            <td class="d-none d-xl-table-cell justify-content-end">
                                 <button class="btn btn-warning" (click)="this.refoundAll()"> reembolsar tudo </button>
                             </td>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let item of this.productsOrder">
+                        <tr *ngFor="let item of this.productsOrder"
+                            [attr.data-bs-toggle]="modalAvaibleToOpen ? 'modal' : null"
+                            [attr.data-bs-target]="modalAvaibleToOpen ? '#refound' : null"
+                            (click)="this.chosenProduct(item)">
                             <td> {{item.productName}} </td>
                             <td> {{item.quantity}} </td>
-                            <td class="d-none d-md-flex grid gap-2">
+                            <td class="d-none d-xl-flex grid gap-2">
                                 <button class="btn btn-secondary" (click)="this.addToRemove(item)"> + </button>
                                 {{item.quantityToRemove}}
                                 <button class="btn btn-secondary" (click)="this.lessToRemove(item)"> - </button>
@@ -42,3 +45,28 @@
         </section>
     </div>
 </div>
+
+<ng-container *ngIf="modalAvaibleToOpen;">
+    <div class="modal fade" id="refound" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" *ngIf="this.productOrderChosen != undefined">
+                <div class="modal-header">
+                    <div class="d-block">
+                        <h2 class="modal-title fs-5"> Produto: ({{ productOrderChosen.productName }}) </h2>
+                        <h2 class="modal-title fs-5"> quantiedade restante: {{ productOrderChosen.quantity }} </h2>
+                    </div>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body grid gap-2 d-flex">
+                    <button class="btn btn-secondary" (click)="this.addToRemove(productOrderChosen)"> + </button>
+                    {{productOrderChosen.quantityToRemove}}
+                    <button class="btn btn-secondary" (click)="this.lessToRemove(productOrderChosen)"> - </button>
+                    <button class="btn btn-warning" (click)="this.refound(productOrderChosen)"> reembolsar </button>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cancelar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

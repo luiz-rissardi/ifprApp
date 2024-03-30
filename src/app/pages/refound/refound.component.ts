@@ -14,6 +14,8 @@ export class RefoundComponent {
 
   phoneControl: FormControl;
   productsOrder: any[] = [];
+  productOrderChosen: any;
+  public modalAvaibleToOpen: boolean = window.innerWidth <= 1200 ? true : false;
 
   constructor(
     formBuilder: FormBuilder,
@@ -22,6 +24,10 @@ export class RefoundComponent {
     private commerceFacade: CommerceFacade
   ) {
     this.phoneControl = formBuilder.control([]);
+  }
+
+  chosenProduct(item:any){
+    this.productOrderChosen = item;
   }
 
   refound(item: any) {
