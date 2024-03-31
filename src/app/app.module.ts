@@ -33,6 +33,7 @@ import { CommandModalComponent } from './components/command-modal/command-modal.
 import { InactiveCommandComponent } from './pages/inactive-command/inactive-command.component';
 import { RefoundComponent } from './pages/refound/refound.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { ColumnsComponent } from './components/dashboards/columns/columns.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     CommandModalComponent,
     InactiveCommandComponent,
     RefoundComponent,
+    ColumnsComponent,
   ],
   imports: [
     BrowserModule,

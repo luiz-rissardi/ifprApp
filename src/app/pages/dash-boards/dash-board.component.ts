@@ -12,13 +12,17 @@ import { OrderProductsFacade } from 'src/app/facades/OrderProductsFacade';
 export class DashBoardComponent {
 
   form: FormGroup;
-  productsSelling: TopProductssSelling[] = []
+  productsSelling: TopProductssSelling[] = [];
+  productsBetweenDateLabes: string[] = [];
+  productsBetweenDateTotalPrices: number[] = [];
   totalPriceOfOrders: number;
 
 
   constructor(formBuilder: FormBuilder, private orderProductFacade: OrderProductsFacade) {
     this.form = formBuilder.group({
-      qualification: []
+      qualification: [],
+      initialDate: [],
+      endDate: []
     })
 
     this.orderProductFacade.getTopProducts("").subscribe((data: TopProductssSelling[]) => {
@@ -32,9 +36,28 @@ export class DashBoardComponent {
     })
   }
 
+  async getProductsBetweenDate() {
+    const initialDate = this.form.get("initialDate").value;
+    const endDate = this.form.get("endDate").value;
+    const data = this.orderProductFacade.getProductsOrderBetweenDate(this.DateFormat(initialDate), this.DateFormat(endDate))
+      data.subscribe((data: any[]) => {
+        data.forEach((el: any,i) => {
+          this.productsBetweenDateLabes.push(el.productName)
+          this.productsBetweenDateTotalPrices.push(el.totalPrice)
+        })
+      })
+  }
+
   getTopProducts() {
     const rank = this.form.get("qualification").value;
     this.orderProductFacade.getTopProducts(rank)
+  }
+
+  private DateFormat(date: string) {
+    const parsedDate = new Date(date);
+    return parsedDate.toISOString()
+      .replace("T", " ")
+      .replace(/.\w{4}$/, "")
   }
 }
 

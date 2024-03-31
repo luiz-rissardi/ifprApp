@@ -31,3 +31,13 @@
         width: 90%;
     }
 }
+
+.buttons{
+    display: none;
+}
+
+@media screen and (min-width:1200px) {
+    .buttons{
+        display: table-cell;
+    }
+}

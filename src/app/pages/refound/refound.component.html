@@ -20,7 +20,7 @@
                         <tr>
                             <td>Nome</td>
                             <td>Quantiedade disponível</td>
-                            <td class="d-none d-xl-table-cell justify-content-end">
+                            <td class="d-none d-xl-table-cell">
                                 <button class="btn btn-warning" (click)="this.refoundAll()"> reembolsar tudo </button>
                             </td>
                         </tr>
@@ -32,11 +32,11 @@
                             (click)="this.chosenProduct(item)">
                             <td> {{item.productName}} </td>
                             <td> {{item.quantity}} </td>
-                            <td class="d-none d-xl-flex grid gap-2">
+                            <td class="buttons">
                                 <button class="btn btn-secondary" (click)="this.addToRemove(item)"> + </button>
                                 {{item.quantityToRemove}}
                                 <button class="btn btn-secondary" (click)="this.lessToRemove(item)"> - </button>
-                                <button class="btn btn-warning" (click)="this.refound(item)"> reembolsar </button>
+                                <button class="btn btn-warning ms-1" (click)="this.refound(item)"> reembolsar </button>
                             </td>
                         </tr>
                     </tbody>

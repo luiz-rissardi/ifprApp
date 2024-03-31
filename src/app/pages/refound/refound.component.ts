@@ -15,7 +15,7 @@ export class RefoundComponent {
   phoneControl: FormControl;
   productsOrder: any[] = [];
   productOrderChosen: any;
-  public modalAvaibleToOpen: boolean = window.innerWidth <= 1200 ? true : false;
+  public modalAvaibleToOpen: boolean = window.innerWidth < 1200 ? true : false;
 
   constructor(
     formBuilder: FormBuilder,

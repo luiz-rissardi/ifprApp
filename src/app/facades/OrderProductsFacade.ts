@@ -1,6 +1,6 @@
 import { Inject, Injectable } from "@angular/core";
 import { OrderProductsService } from "../core/services/HttpRequests/OrderProduct/order-product.service";
-import { Observable, switchMap } from "rxjs";
+import { Observable, forkJoin, from, merge, mergeMap, subscribeOn, switchMap } from "rxjs";
 import { WarningHandlerService } from "../core/services/warningHandler/warning-handler.service";
 import { Handler } from "../core/services/interfaces/warningHandler/handler";
 import { LoaderSpinnerState } from "../core/states/LoaderSpinnerState";
@@ -79,6 +79,32 @@ export class OrderProductsFacade {
             )
         this.handlerOperation(observable, "erro ao pegar produtos da comanda");
         return observable;
+    }
+
+    getProductsOrderBetweenDate(initialDate: string, endDate: string) {
+        const products = new Map();
+        return this.orderService.getBetweenDate(initialDate, endDate)
+            .pipe(
+                switchMap((orders: any) => {
+                    const requests = orders.map((order: any) => this.orderProductService.getAllProductsOfOrder(order?.orderId))
+                    return forkJoin(requests)
+                }),
+                switchMap((orders: any) => {
+                    orders.map((order: any) => {
+                        order.forEach((orderProduct: any) => {
+                            if (products.has(orderProduct.productId)) {
+                                let data = products.get(orderProduct.productId);
+                                data.totalPrice += Number(orderProduct.totalPrice);
+                                products.set(data.productId, data);
+                            } else {
+                                orderProduct.totalPrice = Number(orderProduct.totalPrice)
+                                products.set(orderProduct.productId, orderProduct);
+                            }
+                        })
+                    })
+                    return new Observable(subscriber => subscriber.next([...products.values()]))
+                })
+            )
     }
 
 

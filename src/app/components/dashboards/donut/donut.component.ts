@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ApexChart, ApexPlotOptions, ApexResponsive } from 'ngx-apexcharts';
 import { TopProductssSelling } from 'src/app/core/models/TopProductSelling';
 import { TopProductsSellingState } from 'src/app/core/states/TopProductSelling';
@@ -58,8 +58,8 @@ export class DonutComponent {
         }
       }
     }],
-    labels: ['cachorro-quente', 'refrigerante', 'pastel', 'espetinho'],
-    series: [332, 820, 243, 165]
+    labels: [],
+    series: []
   }
 
 }

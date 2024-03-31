@@ -21,6 +21,14 @@ export class OrderService extends ServiceBase {
     }
   }
 
+  getBetweenDate(initialDate: string, endDate: string) {
+    try {
+      return this.http.get(this.uri + "/order" + `/${initialDate}/${endDate}`, this.options)
+    } catch (error) {
+      throw new OrderException("não foi possivel pegar venda pela data")
+    }
+  }
+
   inactiveOrder(commandId: number) {
     try {
       const body = { commandId };
@@ -38,10 +46,10 @@ export class OrderService extends ServiceBase {
       throw new OrderException("não foi possivel atualizar a venda")
     }
   }
-  
-  getOrderByCommandId(commandId: any){
+
+  getOrderByCommandId(commandId: any) {
     try {
-      return this.http.get(this.uri + "/order/" + commandId,this.options);
+      return this.http.get(this.uri + "/order/" + commandId, this.options);
     } catch (error) {
       throw new OrderException("não foi possivel pegar a venda")
     }

@@ -1,25 +1,49 @@
-<section class="dash-board" *ngIf="this.productsSelling.length != 0; else WithOutSale">
-    <div class="dash-area d-flex justify-content-center mb-5 border flex-column" >
-        <h3 class="me-auto mx-auto"> top produtos vendidos </h3>
-        <form [formGroup]="this.form" class="w-100 mx-auto">
-            <fieldset class="form-group d-flex m-3 align-items-center">
-                <label for="quantityTop" class="form-label"> qualificar por: </label>
-                <select id="quantityTop" class="form-select w-50" (change)="this.getTopProducts()"
-                    formControlName="qualification">
-                    <option value="5" [selected]="true"> top 5 produtos</option>
-                    <option value="10"> top 10 produtos</option>
-                    <option value="15"> top 15 produtos</option>
-                    <option value=""> todos os produtos</option>
-                </select>
-            </fieldset>
-        </form>
-        <app-donut></app-donut>
-    </div>
-    <div class="dash-area d-flex flex-column justify-content-center p-5 mb-5 border">
-        <app-relatory [totalPriceOfOrders]="this.totalPriceOfOrders" [productSelling]="this.productsSelling"></app-relatory>
-    </div>
-</section>
+<div class="dash-board-main">
+    <section class="dash-board" *ngIf="this.productsSelling.length != 0; else WithOutSale">
+        <div class="dash-area mb-5 border flex-column">
+            <h3 class="me-auto mx-auto"> top produtos vendidos </h3>
+            <form [formGroup]="this.form" class="w-100 mx-auto">
+                <fieldset class="form-group d-flex m-3 align-items-center justify-content-center">
+                    <label for="quantityTop" class="form-label"> qualificar por: </label>
+                    <select id="quantityTop" class="form-select w-50" (change)="this.getTopProducts()"
+                        formControlName="qualification">
+                        <option value="5" [selected]="true"> top 5 produtos</option>
+                        <option value="10"> top 10 produtos</option>
+                        <option value="15"> top 15 produtos</option>
+                        <option value=""> todos os produtos</option>
+                    </select>
+                </fieldset>
+            </form>
+            <app-donut></app-donut>
+        </div>
+        <div class="dash-area d-flex justify-content-center mb-5 border flex-column">
+            <h3 class="text-center">filtrar pro data</h3>
+            <form [formGroup]="this.form" class="w-100 mx-auto p-5 d-flex flex-column">
+                <fieldset class="form-group d-flex m-3 align-items-center justify-content-center">
+                    <label for="initialDate" class="form-label"> data inicial: </label>
+                    <input type="datetime-local" formControlName="initialDate" class="form-control w-50"
+                        id="initialDate">
+                </fieldset>
+                <fieldset class="form-group d-flex m-3 align-items-center justify-content-center">
+                    <label for="endDate" class="form-label"> data final: </label>
+                    <input type="datetime-local" formControlName="endDate" class="form-control w-50" id="endDate">
+                </fieldset>
+                <button class="btn btn-success w-50 mx-auto" (click)="getProductsBetweenDate()"> filtrar </button>
+            </form>
 
-<ng-template #WithOutSale class="dash-board">
-    <h2 class="text-center mt-5"> sem produtos vendidos no momento ! </h2>
-</ng-template>
+            <app-columns *ngIf="this.productsBetweenDateLabes.length != 0"
+                [productsBetweenDateLabels]="productsBetweenDateLabes"
+                [productsBetweenDateTotalPrices]="productsBetweenDateTotalPrices">
+            </app-columns>
+
+        </div>
+        <div class="dash-area w-100 d-flex flex-column justify-content-center p-5 mb-5 border">
+            <app-relatory [totalPriceOfOrders]="this.totalPriceOfOrders"
+                [productSelling]="this.productsSelling"></app-relatory>
+        </div>
+    </section>
+
+    <ng-template #WithOutSale class="dash-board">
+        <h2 class="text-center mt-5"> sem produtos vendidos no momento ! </h2>
+    </ng-template>
+</div>
