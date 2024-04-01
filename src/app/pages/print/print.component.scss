@@ -1,0 +1,40 @@
+
+@import "../../styles/mixins";
+
+.command{
+    width: 200px;
+    height: 339.5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+
+    h2{
+        font-size: 3em;
+        font-family: fantasy;
+    }
+}
+
+.btn-icon {
+    position: absolute;
+    right: 5%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1px solid black;
+    display: flex;
+    justify-content: center;
+    z-index: 19;
+
+    &:hover {
+        color: white;
+        background-color: black;
+        border: 1px solid white;
+    }
+
+    @include BreakPoint(mobile-only) {
+        width: 30px;
+        height: 30px;
+    }
+}

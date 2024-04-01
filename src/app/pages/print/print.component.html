@@ -1,0 +1,18 @@
+<div class="container-fluid w-100 d-flex flex-column">
+    <div class="d-flex m-auto my-2" id="buttons">
+        <button class="btn btn-success m-auto" (click)="generateCommands()"> gerar novas comandas </button>
+        <button class="btn btn-secondary m-auto mx-3" (click)="print()"> imprimir </button>
+        <button class="btn btn-icon ms-auto" (click)="home()">
+            <i class="fi fi-rr-home"></i>
+        </button>
+    </div>
+
+    <section id="qrCodeContainer" class="d-flex flex-wrap">
+        <ul class="d-flex flex-wrap justify-content-around">
+            <li class="command m-1" *ngFor="let command of this.commands">
+                <h2 class="text-center"> {{ command.commandId }} </h2>
+                <img src="{{ command.commandUrlImg }}" alt="command">
+            </li>
+        </ul>
+    </section>
+</div>

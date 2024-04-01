@@ -34,6 +34,7 @@ import { InactiveCommandComponent } from './pages/inactive-command/inactive-comm
 import { RefoundComponent } from './pages/refound/refound.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { ColumnsComponent } from './components/dashboards/columns/columns.component';
+import { PrintComponent } from './pages/print/print.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +63,7 @@ import { ColumnsComponent } from './components/dashboards/columns/columns.compon
     InactiveCommandComponent,
     RefoundComponent,
     ColumnsComponent,
+    PrintComponent,
   ],
   imports: [
     BrowserModule,

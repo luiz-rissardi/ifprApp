@@ -36,5 +36,14 @@ export class DOMManipulation {
   findElement(elementId: string) {
     return this.el.nativeElement.querySelector(`#${elementId}`);
   }
+  
+  addChild(elementParentId:string,child:any){
+    const parentEl = this.el.nativeElement.querySelector(`#${elementParentId}`);
+    this.addChild(parentEl,child)
+  }
+
+  createElement(tag:string){
+    return this.dom.createElement(tag)
+  }
 
 }

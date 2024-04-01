@@ -20,6 +20,7 @@ import { UpdateProductsFormComponent } from './components/forms/update-product-f
 import { ResetCommandComponent } from './pages/reset-command/reset-command.component';
 import { InactiveCommandComponent } from './pages/inactive-command/inactive-command.component';
 import { RefoundComponent } from './pages/refound/refound.component';
+import { PrintComponent } from './pages/print/print.component';
 
 const routes: Routes = [
   {
@@ -43,9 +44,9 @@ const routes: Routes = [
       { path: "update-products", component: UpdateProductsFormComponent },
       { path: "commerce", component: SelectProductssComponent },
       { path: "list-of-productss", component: ListProductssComponent },
-      { path: "reset-command", component:ResetCommandComponent},
-      { path: "inactive-command", component:InactiveCommandComponent},
-      { path: "refound", component:RefoundComponent}
+      { path: "reset-command", component: ResetCommandComponent },
+      { path: "inactive-command", component: InactiveCommandComponent },
+      { path: "refound", component: RefoundComponent },
     ]
   },
   {
@@ -56,7 +57,8 @@ const routes: Routes = [
       //vendedor gerenciador
       { path: "manager", component: TicketManagerComponent },
     ]
-  }
+  },
+  { path: "print", component: PrintComponent }
 ];
 
 @NgModule({

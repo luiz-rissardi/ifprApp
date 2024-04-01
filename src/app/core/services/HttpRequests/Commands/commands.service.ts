@@ -16,7 +16,7 @@ export class CommandsService extends ServiceBase {
     try {
       return this.http.get(this.uri + "/command", this.options)
     } catch (error) {
-      throw new CommandException("não foi possivle buscar comanda valida!")
+      throw new CommandException("não foi possivel buscar comanda valida!")
     }
   }
 
@@ -25,7 +25,7 @@ export class CommandsService extends ServiceBase {
       const body = { commandId, avaible }
       return this.http.patch(this.uri + "/command", body, this.options)
     } catch (error) {
-      throw new CommandException("não foi possivle atualizar a comanda!")
+      throw new CommandException("não foi possivel atualizar a comanda!")
     }
   }
 
@@ -34,14 +34,23 @@ export class CommandsService extends ServiceBase {
       const body = { commandId }
       return this.http.post(this.uri + "/command/inactive", body, this.options);
     } catch (error) {
-      throw new CommandException("não foi possivle atualizar a comanda!")
+      throw new CommandException("não foi possivel atualizar a comanda!")
     }
   }
-  
-  getCommandByUrl(commandUrl: string){
+
+  getCommandByUrl(commandUrl: string) {
     try {
       const body = { commandUrl };
-      return this.http.post(this.uri + "/command",body,this.options);
+      return this.http.post(this.uri + "/command", body, this.options);
+    } catch (error) {
+      throw new CommandException("não foi possivel gerar aa comandas!")
+    }
+  }
+
+  createCommands() {
+    try {
+      const body = { };
+      return this.http.post(this.uri + "/commands", body, this.options);
     } catch (error) {
       throw new CommandException("não foi possivle pegar a comanda!")
     }
